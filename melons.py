@@ -46,9 +46,12 @@ class InternationalMelonOrder(AbstractMelonOrder):
         super().__init__(species, qty)
         self.country_code = country_code
 
-        # if self.qty < 10:
-        #     total_before_fee = super().get_total()
-        #     return total_before_fee + 3
+    def get_total(self):
+
+        if self.qty < 10:
+            total_with_fee = super().get_total() + 3
+            return total_with_fee
+            
     
 
     def get_country_code(self):
